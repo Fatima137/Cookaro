@@ -15,7 +15,7 @@ export default function AdBanner() {
               LAB #3 - BANNER ADS
             </h4>
             <p className="text-lg md:text-xl text-white font-bold">
-              DOS & DON'TS
+              DOS & DON&apos;TS
             </p>
           </div>
           <div className="relative w-32 h-32 md:w-40 md:h-40">

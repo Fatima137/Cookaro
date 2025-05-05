@@ -60,7 +60,7 @@ export default function HeroSection() {
               className="rounded-lg object-cover w-full aspect-square"
             />
             <div className="mt-3">
-              <h3 className="text-lg font-medium">You Wash, I'll Dry</h3>
+              <h3 className="text-lg font-medium">You Wash, I&apos;ll Dry</h3>
               <p className="text-sm text-gray-600">Your favorite dish rack, right this way.</p>
               <Link href="" className="text-sm text-gray-500 flex items-center mt-2">
                 SHOP NOW <span className="ml-1">→</span>
@@ -100,14 +100,14 @@ export default function HeroSection() {
             />
             <p className="text-base md:text-lg text-gray-700 max-w-2xl">
               From pans to prep tools, our collection is designed by cooks, for cooks—
-              and it's all on sale (for a limited time).
+              and it&apos;s all on sale (for a limited time).
             </p>
           </div>
         </div>
 
         {/* Right Column - Featured Recipes */}
         <div className="w-full lg:w-64 order-3">
-          <h3 className="text-lg font-medium mb-4 text-center lg:text-left">Recipes We're Loving</h3>
+          <h3 className="text-lg font-medium mb-4 text-center lg:text-left">Recipes We&apos;re Loving</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
             <div>
               <Image
