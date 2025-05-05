@@ -1,19 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaHeart, FaUser, FaShoppingCart, FaGlobe, FaSearch } from "react-icons/fa";
 
 export default function Header() {
   return (
     <header className="flex items-center justify-between px-10 py-6 border-b border-gray-200 w-full">
       <div className="flex items-center gap-10">
-        <Link
-          href="/"
-          className="text-4xl font-[var(--font-playfair)] text-gray-900 tracking-wide"
-        >
-          Cookaroo
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png" // Update this path to your actual logo file
+            alt="Cookaroo Logo"
+            width={150}
+            height={40}
+            priority
+          />
         </Link>
 
         <nav className="flex gap-8 text-sm text-gray-700 font-medium tracking-wide">
-        <Link href="/recipes" className="text-lg font-medium hover:underline">RECIPES</Link>
+          <Link href="">RECIPES</Link>
           <Link href="">VIDEOS</Link>
           <Link href="">STORIES</Link>
           <Link href="">COMMUNITY</Link>

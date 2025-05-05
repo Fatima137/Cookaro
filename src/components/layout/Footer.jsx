@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaUser } from "react-icons/fa";
 
 export default function Footer() {
@@ -7,13 +8,20 @@ export default function Footer() {
       <div className="container mx-auto px-10">
         <div className="flex flex-col md:flex-row justify-between mb-12">
           <div className="mb-8 md:mb-0">
-            <h2 className="text-4xl font-[var(--font-playfair)] mb-2">Cookaroo</h2>
+            <div className="mb-2">
+              <Image
+                src="/logo.png" // Update this path to your actual logo file
+                alt="Cookaroo Logo"
+                width={150}
+                height={40} // This makes the logo white for dark background
+              />
+            </div>
             <div className="w-36 h-1 bg-orange-500 mb-4"></div>
             <p className="text-gray-400 max-w-md">
               Bringing flavor to your feed—one recipe at a time.
             </p>
           </div>
-
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-lg font-medium mb-4">About</h3>
@@ -53,7 +61,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
+        
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
             © 2025 Cookaroo. All rights reserved.
