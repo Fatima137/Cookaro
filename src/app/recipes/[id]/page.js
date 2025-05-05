@@ -231,7 +231,7 @@ export default function RecipeDetailPage({ params }) {
 
         {/* Author's note */}
         <div className="bg-amber-50 border-l-4 border-amber-500 p-6 mb-10">
-          <h2 className="font-medium text-lg mb-2">Author's Note</h2>
+          <h2 className="font-medium text-lg mb-2">Author&apos;s Note</h2>
           <p className="italic">{recipe.authorNote}</p>
         </div>
 
