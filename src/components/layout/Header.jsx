@@ -17,7 +17,7 @@ export default function Header() {
         </Link>
 
         <nav className="flex gap-8 text-sm text-gray-700 font-medium tracking-wide">
-          <Link href="">RECIPES</Link>
+          <Link href="/recipes" className="text-lg font-medium hover:underline">RECIPES</Link>
           <Link href="">VIDEOS</Link>
           <Link href="">STORIES</Link>
           <Link href="">COMMUNITY</Link>
