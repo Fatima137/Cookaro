@@ -20,7 +20,7 @@ export default function AdBanner() {
           </div>
           <div className="relative w-32 h-32 md:w-40 md:h-40">
             <Image
-              src="/banana-peel.png"
+              src="/banana.jpg"
               fill
               alt="Banana Peel"
               className="object-contain"

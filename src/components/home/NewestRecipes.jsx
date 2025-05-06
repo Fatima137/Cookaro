@@ -3,12 +3,21 @@
 import Image from "next/image";
 
 export default function NewestRecipes() {
+  const moreRecipes = [
+    { name: "Chili Lime Grilled Corn", time: "32 mins", rating: 4.8 },
+    { name: "No-Bake Oreo Cheesecake", time: "12 mins", rating: 4.9 },
+    { name: "Spicy Thai Basil Chicken", time: "20 mins", rating: 4.7 },
+    { name: "Mediterranean Quinoa Bowl", time: "25 mins", rating: 4.5 },
+    { name: "Apple Cinnamon Overnight Oats", time: "5 mins", rating: 4.6 },
+    { name: "Lemon Garlic Roasted Broccoli", time: "15 mins", rating: 4.4 }
+  ];
+
   return (
     <section className="container mx-auto px-10 py-12">
       <h3 className="text-2xl font-medium mb-6">Newest Recipes</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="flex flex-col md:flex-row gap-6">
         {/* Recipe Card 1 */}
-        <div className="relative">
+        <div className="md:w-1/3 relative">
           <div className="relative">
             <Image
               src="/shrimp.jpg"
@@ -32,7 +41,7 @@ export default function NewestRecipes() {
         </div>
 
         {/* Recipe Card 2 */}
-        <div className="relative">
+        <div className="md:w-1/3 relative">
           <div className="relative">
             <Image
               src="/riso.jpg"
@@ -55,51 +64,25 @@ export default function NewestRecipes() {
           </div>
         </div>
 
-        {/* Recipe Card 3 */}
-        <div className="relative">
-          <div className="relative">
-            <Image
-              src="/corn.jpg"
-              width={300}
-              height={200}
-              alt="Chili Lime Grilled Corn"
-              className="rounded-lg w-full object-cover aspect-[4/3]"
-            />
-            <div className="absolute top-3 right-3 bg-white/80 p-1.5 rounded-full shadow">
-              <span className="text-xs font-medium px-2 py-0.5 bg-white rounded-full">New</span>
-            </div>
+        {/* More Recipes List */}
+        <div className="md:w-1/3 bg-gray-50 rounded-lg p-4">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="text-lg font-medium">More Recipes</h4>
+            <span className="text-sm text-blue-600 font-medium">View All</span>
           </div>
-          <h4 className="mt-3 text-lg font-medium">Chili Lime Grilled Corn</h4>
-          <p className="text-sm text-gray-600">Total time: 32 mins</p>
-          <div className="flex items-center mt-1">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className="text-yellow-500">★</span>
+          <div className="space-y-3">
+            {moreRecipes.map((recipe, index) => (
+              <div key={index} className="flex items-center justify-between border-b border-gray-200 pb-2 last:border-0">
+                <div>
+                  <p className="font-medium text-sm">{recipe.name}</p>
+                  <p className="text-xs text-gray-500">{recipe.time}</p>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-yellow-500 text-sm mr-1">★</span>
+                  <span className="text-xs text-gray-600">{recipe.rating}</span>
+                </div>
+              </div>
             ))}
-            <span className="ml-2 text-sm text-gray-600">(12)</span>
-          </div>
-        </div>
-
-        {/* Recipe Card 4 */}
-        <div className="relative">
-          <div className="relative">
-            <Image
-              src="/oreo.jpg"
-              width={300}
-              height={200}
-              alt="No-Bake Oreo Cheesecake"
-              className="rounded-lg w-full object-cover aspect-[4/3]"
-            />
-            <div className="absolute top-3 right-3 bg-white/80 p-1.5 rounded-full shadow">
-              <span className="text-xs font-medium px-2 py-0.5 bg-white rounded-full">New</span>
-            </div>
-          </div>
-          <h4 className="mt-3 text-lg font-medium">No-Bake Oreo Cheesecake</h4>
-          <p className="text-sm text-gray-600">Total time: 12 mins</p>
-          <div className="flex items-center mt-1">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className="text-yellow-500">★</span>
-            ))}
-            <span className="ml-2 text-sm text-gray-600">(13)</span>
           </div>
         </div>
       </div>

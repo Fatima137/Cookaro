@@ -10,8 +10,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <AnnouncementBanner />
         <Header />
+        <AnnouncementBanner />
         <main>{children}</main>
         <Footer />
       </body>
