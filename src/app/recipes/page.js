@@ -237,24 +237,41 @@ export default function RecipesHomepage() {
         </div>
 
         {/* Category circles */}
-        <div className="flex justify-center flex-wrap gap-8 max-w-4xl mx-auto mb-8">
-          {categoryCircles.map((category) => (
-            <Link key={category.name} href={`/recipes/category/${category.name.toLowerCase()}`} className="group">
-              <div className="flex flex-col items-center">
-                <div className="w-24 h-24 relative rounded-full overflow-hidden mb-2 group-hover:shadow-md transition-shadow">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <span className="text-sm font-medium">{category.name}</span>
-              </div>
-            </Link>
-          ))}
+        <div className="mb-12">
+  <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+    {categoryCircles.map((category) => (
+      <Link 
+        key={category.name} 
+        href={`/recipes/category/${category.name.toLowerCase()}`} 
+        className="group"
+      >
+        <div className="relative overflow-hidden bg-white rounded-md shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center p-3">
+            <div className="w-12 h-12 relative rounded-full overflow-hidden flex-shrink-0 border-2 border-stone-100">
+              <Image
+                src={category.image}
+                alt={category.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="ml-3 text-base font-medium group-hover:text-green-700 transition-colors">{category.name}</span>
+            <svg 
+              className="w-5 h-5 ml-3 text-gray-400 group-hover:text-green-700 transition-colors" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <div className="h-1 w-0 bg-green-700 group-hover:w-full transition-all duration-300"></div>
         </div>
-
+      </Link>
+    ))}
+  </div>
+</div>
         {/* Filter tags */}
         <div className="flex flex-wrap justify-center gap-2 mb-6">
           {filterTags.map((tag) => (

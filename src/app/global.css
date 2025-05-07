@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('/fonts/PlayfairDisplay-Black.ttf') format('tff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'MyCustomFontItalic';
+    src: url('public/fonts/PlayfairDisplay-Italic.ttf') format('tff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }

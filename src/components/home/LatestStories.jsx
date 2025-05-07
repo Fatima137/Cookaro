@@ -46,13 +46,13 @@ const LatestStories = () => {
 
   return (
     <section className="container mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r black">
+      <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r black" style={{ fontFamily:'MyCustomFont' }}>
         Latest Stories
       </h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
         {featuredStories.map((story) => (
-          <div key={story.id} className="flex flex-col rounded-xl overflow-hidden bg-white shadow-md hover:shadow-lg transition-all duration-300 group">
+          <div key={story.id} className="flex flex-col overflow-hidden bg-white shadow-md hover:shadow-lg transition-all duration-300 group">
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image 
                 src={story.image} 
@@ -65,7 +65,7 @@ const LatestStories = () => {
               </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-3 group-hover:text-amber-600 transition-colors duration-300">
+              <h3 className="text-xl font-bold mb-3 group-hover:text-amber-600 transition-colors duration-300" style={{ fontFamily:'MyCustomFont' }}>
                 {story.title}
               </h3>
               <p className="text-gray-600">{story.description}</p>
@@ -77,8 +77,8 @@ const LatestStories = () => {
         ))}
       </div>
       
-      <div className="bg-gradient-to-r from-amber-50 to-pink-50 rounded-2xl p-6">
-        <h3 className="text-xl font-medium mb-6">More Articles</h3>
+      <div className="bg-gradient-to-r from-amber-50 to-pink-50 p-6">
+        <h3 className="text-xl font-medium mb-6" style={{ fontFamily:'MyCustomFont' }}>More Articles</h3>
         <div className="flex flex-col divide-y">
           {listStories.map((story) => (
             <div key={story.id} className="py-5 flex items-center gap-4 group">
@@ -91,7 +91,7 @@ const LatestStories = () => {
                 />
               </div>
               <div className="flex-1">
-                <div className="text-xs font-medium text-amber-600 mb-1">{story.category}</div>
+                <div className="text-xs font-medium text-amber-600 mb-1" style={{ fontFamily:'MyCustomFont' }}>{story.category}</div>
                 <h4 className="font-medium group-hover:text-amber-600 transition-colors duration-300">
                   {story.title}
                 </h4>

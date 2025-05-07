@@ -8,9 +8,11 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-            serifLogo: ['"Playfair Display"', 'serif'],
+            serifLogo: ['"Playfair Display"', 'serif'],serifDisplay: ['"Cormorant Garamond"', 'serif'],
+
           },
       },
     },
     plugins: [],
   }
+ 
