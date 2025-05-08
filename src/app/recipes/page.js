@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 export default function RecipesHomepage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [hoveredCategory, setHoveredCategory] = useState(null);
   
   // Category circles for navigation with real images
   const categoryCircles = [
@@ -66,7 +67,7 @@ export default function RecipesHomepage() {
       reviews: 7
     }
   ];
-
+  
   // Quick suppers with real images
   const quickSuppers = [
     {
@@ -169,6 +170,31 @@ export default function RecipesHomepage() {
     }
   ];
 
+  // Our Faves - Featured articles similar to Food52
+  const ourFaves = [
+    {
+      id: 1,
+      title: '27 Stellar Side Dishes for Chicken',
+      category: 'CHICKEN',
+      image: '/club.jpg',
+      fullWidth: true
+    },
+    {
+      id: 2,
+      title: '9 Martha Stewart Recipes We Can\'t Stop Making—From One-Pan Pasta to No-Knead Bread',
+      category: 'WEEKNIGHT COOKING',
+      image: '/lunch.webp',
+      fullWidth: false
+    },
+    {
+      id: 3,
+      title: 'These 14 No-Churn Ice Creams Are Summertime Magic',
+      category: 'ICE CREAM/FROZEN DESSERTS',
+      image: '/pancake.jpg',
+      fullWidth: false
+    }
+  ];
+
   // Render a single recipe card
   const RecipeCard = ({ recipe }) => (
     <Link href={`/recipes/${recipe.id}`} className="group">
@@ -181,8 +207,8 @@ export default function RecipesHomepage() {
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <div className="text-xs font-medium text-green-700 mb-1">{recipe.category}</div>
-        <h3 className="font-medium mb-1 group-hover:underline line-clamp-2">{recipe.title}</h3>
+        <div className="text-xs font-medium text-green-700 mb-1" style={{ fontFamily:'MyCustomFont' }}>{recipe.category}</div>
+        <h3 className="font-medium mb-1 group-hover:underline line-clamp-2" style={{ fontFamily:'MyCustomFont' }}>{recipe.title}</h3>
         <div className="text-xs text-gray-500">By {recipe.author} · {recipe.date}</div>
         
         {recipe.rating && (
@@ -206,11 +232,38 @@ export default function RecipesHomepage() {
     </Link>
   );
 
+  // Render a featured article card
+  const FeaturedArticleCard = ({ article }) => (
+    <div className={`relative ${article.fullWidth ? 'col-span-2' : ''}`}>
+      <Link href={`/articles/${article.id}`}>
+        <div className="relative overflow-hidden">
+          <div className={`relative ${article.fullWidth ? 'h-96' : 'h-72'} w-full`}>
+            <Image
+              src={article.image}
+              alt={article.title}
+              fill
+              className="object-cover transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
+            <div className="uppercase text-xs font-medium tracking-wider mb-2">{article.category}</div>
+            <h3 className={`font-serif ${article.fullWidth ? 'text-3xl' : 'text-2xl'} mb-4`} style={{ fontFamily:'MyCustomFont' }}>
+              {article.title}
+            </h3>
+            <button className="bg-white text-black text-sm px-4 py-2 w-fit hover:bg-gray-200 transition-colors">
+              View Article
+            </button>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+
   return (
     <div className="bg-stone-50 min-h-screen">
       {/* Header with background image */}
       <header className="text-center py-12 px-4 bg-cover bg-center" style={{ backgroundImage: 'url("/images/header-bg.jpg")', backgroundColor: 'rgba(255, 255, 255, 0.8)', backgroundBlendMode: 'overlay' }}>
-        <h1 className="text-5xl font-serif mb-8">Recipes</h1>
+        <h1 className="text-5xl font-serif mb-8" style={{ fontFamily:'MyCustomFont' }}>Recipes</h1>
         
         {/* Search bar */}
         <div className="max-w-xl mx-auto mb-8">
@@ -238,45 +291,46 @@ export default function RecipesHomepage() {
 
         {/* Category circles */}
         <div className="mb-12">
-  <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-    {categoryCircles.map((category) => (
-      <Link 
-        key={category.name} 
-        href={`/recipes/category/${category.name.toLowerCase()}`} 
-        className="group"
-      >
-        <div className="relative overflow-hidden bg-white rounded-md shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center p-3">
-            <div className="w-12 h-12 relative rounded-full overflow-hidden flex-shrink-0 border-2 border-stone-100">
-              <Image
-                src={category.image}
-                alt={category.name}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <span className="ml-3 text-base font-medium group-hover:text-green-700 transition-colors">{category.name}</span>
-            <svg 
-              className="w-5 h-5 ml-3 text-gray-400 group-hover:text-green-700 transition-colors" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+            {categoryCircles.map((category) => (
+              <Link 
+                key={category.name} 
+                href={`/recipes/category/${category.name.toLowerCase()}`} 
+                className="group"
+              >
+                <div className="relative overflow-hidden bg-white rounded-md shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center p-3">
+                    <div className="w-12 h-12 relative rounded-full overflow-hidden flex-shrink-0 border-2 border-stone-100">
+                      <Image
+                        src={category.image}
+                        alt={category.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <span className="ml-3 text-base font-medium group-hover:text-orange-500 transition-colors" style={{ fontFamily:'MyCustomFont' }}>{category.name}</span>
+                    <svg 
+                      className="w-5 h-5 ml-3 text-gray-400 group-hover:text-orange-500 transition-colors" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                  <div className="h-1 w-0 bg-orange-500 group-hover:w-full transition-all duration-300"></div>
+                </div>
+              </Link>
+            ))}
           </div>
-          <div className="h-1 w-0 bg-green-700 group-hover:w-full transition-all duration-300"></div>
         </div>
-      </Link>
-    ))}
-  </div>
-</div>
+
         {/* Filter tags */}
         <div className="flex flex-wrap justify-center gap-2 mb-6">
           {filterTags.map((tag) => (
             <Link key={tag} href={`/recipes/tag/${tag.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}
-              className="px-4 py-2 bg-white border border-gray-200 text-sm hover:bg-gray-100 transition-colors"
+              className="px-4 py-2 bg-white border border-gray-200 text-sm hover:bg-gray-100 transition-colors" style={{ fontFamily:'MyCustomFont' }}
             >
               {tag}
             </Link>
@@ -286,6 +340,27 @@ export default function RecipesHomepage() {
 
       {/* Main content */}
       <main className="max-w-6xl mx-auto px-4 pb-12">
+        {/* Our Faves Section - Styled like Food52 */}
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center">
+              <div className="h-px bg-gray-300 w-16"></div>
+              <div className="mx-4 font-serif text-3xl" style={{ fontFamily:'MyCustomFont'}}>A Few of Our Faves</div>
+              <div className="h-px bg-gray-300 w-16"></div>
+            </div>
+            <p className="text-gray-600 mt-3">Ripened on the vine, picked by our editors, and ready to eat.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {ourFaves.map((article, index) => (
+              <FeaturedArticleCard 
+                key={article.id} 
+                article={article}
+              />
+            ))}
+          </div>
+        </section>
+
         {/* Featured section */}
         <section className="mb-16">
           <div className="flex justify-between items-center mb-6">
@@ -341,7 +416,7 @@ export default function RecipesHomepage() {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center">
-              <span className="bg-stone-50 px-4 text-2xl font-serif">Meet Our Residents</span>
+              <span className="bg-stone-50 px-4 text-2xl font-serif" style={{ fontFamily:'MyCustomFont' }}>Meet Our Residents</span>
             </div>
           </div>
           
@@ -360,7 +435,7 @@ export default function RecipesHomepage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-medium">{chef.name}</h3>
+                <h3 className="font-medium" style={{ fontFamily:'MyCustomFont' }}>{chef.name}</h3>
                 <p className="text-sm text-gray-500">{chef.specialty}</p>
                 <Link href={`/residents/${chef.id}`} className="text-xs mt-2 inline-block hover:underline">
                   VIEW MORE →
@@ -411,7 +486,7 @@ export default function RecipesHomepage() {
           <div className="max-w-md mx-auto mb-8">
             <div className="flex">
               <input 
-                type="email" 
+                type="email"  
                 placeholder="Your email" 
                 className="w-full px-4 py-2 border border-r-0 border-gray-300 focus:outline-none" 
               />

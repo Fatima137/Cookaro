@@ -322,13 +322,13 @@ const generateMockRecipes = (category, count) => {
       <div className="mb-6 md:mb-0 md:mr-8 max-w-xl">
         {/* Category navigation and title */}
         <div className="flex items-center text-sm text-gray-500 mb-3">
-          <Link href="/recipes" className="hover:text-gray-700">
+          <Link href="/recipes" className="hover:text-gray-700" style={{ fontFamily:'MyCustomFont' }}>
             Recipes
           </Link>
           <span className="mx-2">&gt;</span>
-          <span className="font-medium text-gray-700">{categoryInfo?.name || 'Category'}</span>
+          <span className="font-medium text-gray-700" style={{ fontFamily:'MyCustomFont' }}>{categoryInfo?.name || 'Category'}</span>
         </div>
-        <h1 className="text-3xl font-serif font-medium mb-4">{categoryInfo?.name || 'Category'}</h1>
+        <h1 className="text-3xl font-serif font-medium mb-4" style={{ fontFamily:'MyCustomFont' }}>{categoryInfo?.name || 'Category'}</h1>
         <p className="text-gray-600 leading-relaxed">
           {categoryInfo?.description || 'Discover our collection of delicious recipes.'}
         </p>
@@ -357,7 +357,7 @@ const generateMockRecipes = (category, count) => {
         {activeFilters.length > 0 && (
           <div className="mb-6">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-medium">Active Filters:</span>
+              <span className="text-sm font-medium" style={{ fontFamily:'MyCustomFont' }}>Active Filters:</span>
               {activeFilters.map((filter, index) => (
                 <span 
                   key={`${filter.type}-${filter.value}-${index}`}
@@ -402,7 +402,7 @@ const generateMockRecipes = (category, count) => {
           <div className={`${showFilters || 'hidden lg:block'} lg:w-1/4`}>
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-medium">Filter By</h2>
+                <h2 className="text-lg font-medium" style={{ fontFamily:'MyCustomFont' }}>Filter By</h2>
                 <button 
                   onClick={clearAllFilters}
                   className="text-sm text-gray-500 hover:text-gray-700 hover:underline"
@@ -413,7 +413,7 @@ const generateMockRecipes = (category, count) => {
 
               {/* Difficulty Filter */}
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-2">Difficulty</h3>
+                <h3 className="text-sm font-medium mb-2" style={{ fontFamily:'MyCustomFont' }}>Difficulty</h3>
                 <div className="space-y-2">
                   {['Easy', 'Medium', 'Hard'].map((difficulty) => (
                     <label key={difficulty} className="flex items-center">
@@ -431,7 +431,7 @@ const generateMockRecipes = (category, count) => {
 
               {/* Cook Time Filter */}
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-2">Cook Time</h3>
+                <h3 className="text-sm font-medium mb-2" style={{ fontFamily:'MyCustomFont' }}>Cook Time</h3>
                 <div className="space-y-2">
                   {['Under 15 min', 'Under 30 min', 'Under 1 hour', '1+ hours'].map((time) => (
                     <label key={time} className="flex items-center">
@@ -450,7 +450,7 @@ const generateMockRecipes = (category, count) => {
 
               {/* Meal Type Filter */}
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-2">Meal Type</h3>
+                <h3 className="text-sm font-medium mb-2" style={{ fontFamily:'MyCustomFont' }}>Meal Type</h3>
                 <div className="space-y-2">
                   {['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snack'].map((meal) => (
                     <label key={meal} className="flex items-center">
@@ -520,9 +520,9 @@ const generateMockRecipes = (category, count) => {
     </div>
                   <div className="md:w-1/2">
                     <div className="flex items-center mb-2">
-                      <span className="bg-white px-2 py-1 text-xs font-medium rounded-full">Featured</span>
+                      <span className="bg-white px-2 py-1 text-xs font-medium rounded-full" style={{ fontFamily:'MyCustomFont' }}>Featured</span>
                     </div>
-                    <h2 className="text-2xl font-serif mb-2">{recipes[0].title}</h2>
+                    <h2 className="text-2xl font-serif mb-2" style={{ fontFamily:'MyCustomFont' }}>{recipes[0].title}</h2>
                     <p className="text-sm text-gray-600 mb-2">By {recipes[0].chef}</p>
                     <div className="flex items-center mb-4">
                       <div className="flex items-center mr-2">
@@ -591,7 +591,7 @@ const generateMockRecipes = (category, count) => {
                   </Link>
                     <div className="p-4">
                       <Link href={`/recipes/${recipe.id}`} className="block">
-                        <h3 className="font-serif font-medium text-lg mb-1 hover:text-gray-700">{recipe.title}</h3>
+                        <h3 className="font-serif font-medium text-lg mb-1 hover:text-gray-700" style={{ fontFamily:'MyCustomFont' }}>{recipe.title}</h3>
                       </Link>
                       <p className="text-sm text-gray-600 mb-2">By {recipe.chef}</p>
                       <div className="flex items-center mb-3">

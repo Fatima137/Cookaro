@@ -171,7 +171,7 @@ export default function RecipeDetailPage({ params }) {
       {/* Recipe header - redesigned to match reference */}
       <header className="max-w-4xl mx-auto pt-12 px-4">
         <div className="text-center mb-6">
-          <h1 className="text-4xl md:text-5xl font-serif font-medium mb-4">
+          <h1 className="text-4xl md:text-5xl font-serif font-medium mb-4" style={{ fontFamily:'MyCustomFont' }}>
             {recipe.title}
           </h1>
           <div className="text-sm text-gray-600 mb-2">
@@ -319,7 +319,7 @@ export default function RecipeDetailPage({ params }) {
           <div className="py-8">
             {activeTab === "ingredients" && (
               <div>
-                <h2 className="sr-only">Ingredients</h2>
+                <h2 className="sr-only" style={{ fontFamily:'MyCustomFont' }}>Ingredients</h2>
                 <ul className="space-y-4">
                   {recipe.ingredients
                     .slice(0, showAllIngredients ? recipe.ingredients.length : recipe.ingredients.length)
@@ -335,7 +335,7 @@ export default function RecipeDetailPage({ params }) {
 
             {activeTab === "directions" && (
               <div>
-                <h2 className="sr-only">Directions</h2>
+                <h2 className="sr-only" style={{ fontFamily:'MyCustomFont' }}>Directions</h2>
                 <ol className="space-y-8">
                   {recipe.directions.map((direction) => (
                     <li key={direction.step} className="flex">
@@ -355,7 +355,7 @@ export default function RecipeDetailPage({ params }) {
 
             {activeTab === "nutrition" && (
               <div>
-                <h2 className="font-medium mb-4">Nutrition Information</h2>
+                <h2 className="font-medium mb-4" style={{ fontFamily:'MyCustomFont' }}>Nutrition Information</h2>
                 <p className="text-sm text-gray-500 mb-4">Per serving</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   <div className="border-b pb-2">
@@ -390,7 +390,7 @@ export default function RecipeDetailPage({ params }) {
 
         {/* Recipe tips */}
         <div className="mb-12">
-          <h2 className="text-xl font-medium mb-4">Recipe Tips</h2>
+          <h2 className="text-xl font-medium mb-4" style={{ fontFamily:'MyCustomFont' }}>Recipe Tips</h2>
           <ul className="list-disc pl-5 space-y-2">
             {recipe.tips.map((tip, index) => (
               <li key={index}>{tip}</li>
@@ -400,7 +400,7 @@ export default function RecipeDetailPage({ params }) {
 
         {/* Tags */}
         <div className="mb-12">
-          <h2 className="text-sm font-medium uppercase mb-3">Tags</h2>
+          <h2 className="text-sm font-medium uppercase mb-3" style={{ fontFamily:'MyCustomFont' }}>Tags</h2>
           <div className="flex flex-wrap gap-2">
             {recipe.tags.map((tag) => (
               <Link
@@ -442,11 +442,11 @@ export default function RecipeDetailPage({ params }) {
 
         {/* Reviews section */}
         <div id="reviews">
-          <h2 className="text-2xl font-serif mb-6">Reviews ({reviews.length})</h2>
+          <h2 className="text-2xl font-serif mb-6" style={{ fontFamily:'MyCustomFont' }}>Reviews ({reviews.length})</h2>
 
           {/* Review form */}
           <div className="bg-gray-50 p-6 mb-8 border border-gray-200">
-            <h3 className="text-lg font-medium mb-4">Write a Review</h3>
+            <h3 className="text-lg font-medium mb-4" style={{ fontFamily:'MyCustomFont' }}>Write a Review</h3>
             <form onSubmit={handleReviewSubmit}>
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-2">Rating</label>
