@@ -1,2 +1,6 @@
 @import "tailwindcss";
 
+.main-content {
+  padding-top: 256px; /* Ensures content starts below the fixed header stack */
+}
+

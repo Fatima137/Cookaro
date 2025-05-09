@@ -14,14 +14,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white w-full overflow-x-hidden">
       <HeroSection />
-      <TrendingRecipes />
-      <FeaturedCategories />
       <NewestRecipes />
       <ProKitchenSection />
+      <LatestStories />
       <CommunityHighlights />
       <AdBanner />
-      <LatestStories />
-      <JoinCommunity />
+      <FeaturedCategories />
     </div>
   );
 }
