@@ -221,7 +221,7 @@ export default function CookingCommunityPage() {
       </section>
 
       {/* Community Events Section */}
-      <section className="mb-12 relative bg-[#B3A88F] py-8">
+      <section className="mb-12 relative bg-[#B3A88F] py-8 mt-12">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#0B0A08] italic mb-6">Upcoming Community Events</h2>
         

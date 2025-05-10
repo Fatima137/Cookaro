@@ -172,8 +172,11 @@ export default function CookingStoriesPage() {
         </div>
       </section>
 
-      {/* Featured Collections Section */}
-      <section className="mb-12 relative">
+      {/* Divider and Featured Collections Section */}
+      <div className="w-full flex justify-center mt-12 mb-6">
+        <div className="h-0.5 w-32 bg-[#E5E5E5] rounded-full"></div>
+      </div>
+      <section className="mb-12 relative mt-8">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#383018] italic mb-6">Featured Collections</h2>
         

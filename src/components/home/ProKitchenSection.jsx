@@ -113,7 +113,7 @@ export default function CookingVideoHomepage() {
   };
 
   return (
-    <div className="bg-[#F8FAF7] font-serif">
+    <div className="bg-[#F8FAF7] font-serif mt-8 py-16">
       {/* Header */}
       <header className="container mx-auto py-6 px-6 lg:px-8">
         <h1 className="text-4xl font-serif text-[#0B0A08]">Cooking Videos</h1>

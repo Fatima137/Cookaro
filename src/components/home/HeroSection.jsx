@@ -62,7 +62,7 @@ export default function HeroSection() {
   ];
   
   return (
-    <section className="pt-64 container mx-auto px-4 pb-8">
+    <section className="pt-2 container mx-auto px-4 pb-8">
       <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8">
         {/* Left Column - Two Stories and Shop */}
         <div className="w-full lg:w-64 flex flex-col h-full order-2 lg:order-1 gap-4">
