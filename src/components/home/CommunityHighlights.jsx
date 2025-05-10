@@ -51,7 +51,7 @@ export default function CookingCommunityPage() {
     },
     {
       image: "/image/c3.jpg",
-      title: "Virtual Pasta Making Masterclass",
+      title: "Virtual Pasta Making Masterclass With Chefs",
       location: "Online",
       category: "Virtual Workshop",
       date: "June 20, 2025"
@@ -158,7 +158,7 @@ export default function CookingCommunityPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 lg:px-8 mb-12 mt-8">
+      <section className="container mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Main featured community story */}
           <div className="lg:w-1/2">
@@ -169,7 +169,7 @@ export default function CookingCommunityPage() {
                   width={700}
                   height={500}
                   alt={heroCommunity.title}
-                  className="w-full object-cover aspect-[16/9] rounded group-hover:scale-105 transition-transform duration-500"
+                  className="w-full object-cover aspect-[16/9] group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Member badge */}
                 <div className="absolute bottom-4 right-4 bg-[#383O1B] bg-opacity-90 text-[#F8FAF7] px-3 py-1 text-sm rounded-full font-medium">
@@ -263,7 +263,7 @@ export default function CookingCommunityPage() {
               <div className="flex gap-6 pb-4" style={{ minWidth: 'min-content' }}>
                 {communityEvents.map((event, index) => (
                   <div key={index} className="flex-none w-64 group cursor-pointer">
-                    <div className="relative overflow-hidden rounded">
+                    <div className="relative overflow-hidden">
                       <Image
                         src={event.image}
                         width={260}
@@ -290,7 +290,7 @@ export default function CookingCommunityPage() {
             </div>
             
             {/* Scroll Indicator */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <div className="flex gap-1">
                 {communityEvents.map((_, index) => (
                   <div 
@@ -299,7 +299,7 @@ export default function CookingCommunityPage() {
                   ></div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="mt-6 text-center">
             <button className="bg-[#0B0A08] hover:bg-[#383O1B] text-[#F8FAF7] px-6 py-2 rounded-full font-medium transition-colors">
@@ -316,7 +316,7 @@ export default function CookingCommunityPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {communityMembers.map((member, index) => (
-              <div key={index} className="bg-[#F8FAF7] rounded-lg overflow-hidden shadow-sm border border-[#B3A88F] group cursor-pointer hover:shadow-md transition-shadow">
+              <div key={index} className="bg-[#F8FAF7] overflow-hidden shadow-sm border border-[#B3A88F] group cursor-pointer hover:shadow-md transition-shadow">
                 <div className="relative">
                   <Image
                     src={member.image}
@@ -336,66 +336,6 @@ export default function CookingCommunityPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Community Categories Section */}
-      <section className="mb-12">
-        <div className="container mx-auto px-6 lg:px-8">
-          <h2 className="text-2xl font-serif text-[#383O1B] italic mb-6">Community Groups</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {["Baking Club", "Plant-Based", "Grilling Masters", "Weeknight Cooks", "Culinary Students", "Recipe Testing"].map((category, index) => (
-              <div key={index} className="bg-[#B3A88F] hover:bg-[#383O1B] hover:text-[#F8FAF7] transition-colors rounded-lg p-4 text-center cursor-pointer">
-                <span className="text-[#0B0A08] font-medium group-hover:text-[#F8FAF7]">{category}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Community Stats Section */}
-      <section className="mb-12">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-[#B3A88F] rounded-lg p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-serif text-[#0B0A08] mb-2">Our Growing Community</h2>
-              <p className="text-[#383O1B]">Join thousands of passionate home cooks sharing recipes and culinary knowledge</p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              {[
-                { value: "15,428", label: "Community Members" },
-                { value: "32,851", label: "Shared Recipes" },
-                { value: "1,245", label: "Monthly Events" },
-                { value: "8,752", label: "Active Discussions" }
-              ].map((stat, index) => (
-                <div key={index} className="bg-[#F8FAF7] p-4 rounded-lg">
-                  <p className="text-3xl font-bold text-[#0B0A08]">{stat.value}</p>
-                  <p className="text-[#383O1B] text-sm mt-1">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Join Community Section */}
-      <section className="mb-12">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-[#0B0A08] text-[#F8FAF7] rounded-lg p-6 md:p-8">
-            <div className="md:flex items-center justify-between">
-              <div className="md:w-2/3">
-                <h3 className="text-xl font-serif mb-2">Join Our Cooking Community Today</h3>
-                <p className="text-[#B3A88F]">Connect with fellow food enthusiasts, share recipes, participate in challenges, and attend exclusive events.</p>
-              </div>
-              <div className="md:w-1/3 mt-4 md:mt-0 text-center">
-                <button className="bg-[#F8FAF7] text-[#0B0A08] hover:bg-[#B3A88F] transition-colors px-6 py-3 rounded font-medium">
-                  Create Free Account
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

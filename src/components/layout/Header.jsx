@@ -24,8 +24,9 @@ export default function Header() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
-      <SponsorBanner />
+      
       <AnnouncementBanner />
+      <SponsorBanner />
       <header className="bg-white border-b border-[#B3A88F] shadow-md">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex items-center justify-between py-5 gap-x-12">
@@ -161,7 +162,7 @@ export default function Header() {
             <div className="flex justify-center flex-1 mx-auto">
               <Link href="/">
                 <Image
-                  src="/image/logo.png"
+                  src="/image/image1.png"
                   alt="Cookaroo Logo"
                   width={200}
                   height={70}

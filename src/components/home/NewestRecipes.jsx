@@ -39,32 +39,32 @@ export default function FoodHomepage() {
   // Newest recipes data
   const newestRecipes = [
     {
-      image: "/cocktails.jpg",
+      image: "/image/cocktails.jpg",
       title: "Blood and Sand",
       category: "Cocktails"
     },
     {
-      image: "/chickpea.jpg",
+      image: "/image/chickpea.jpg",
       title: "Simple Fiddlehead Ferns",
       category: "Spring Vegetables" 
     },
     {
-      image: "/glass.jpg", 
+      image: "/image/glass.jpg", 
       title: "Chartreuse Margarita",
       category: "Cocktails"
     },
     {
-      image: "/corn.jpg",
+      image: "/image/corn.jpg",
       title: "Quick Pickled Vegetables",
       category: "Preserves"
     },
     {
-      image: "/cof.jpg",
+      image: "/image/cof.jpg",
       title: "Spring Pasta Primavera",
       category: "Main Course"
     },
     {
-      image: "/salad.jpg",
+      image: "/image/salad.jpg",
       title: "Strawberry Arugula Salad",
       category: "Salads" 
     }
@@ -103,14 +103,14 @@ export default function FoodHomepage() {
   };
 
   return (
-    <div className="bg-[#F8FAF7] font-serif">
+    <div className="bg-[#F8FAF7] font-serif mb-8">
       {/* Header */}
       <header className="container mx-auto py-6 px-6 lg:px-8 border-b border-[#B3A88F]">
         <h1 className="text-4xl font-serif text-[#0B0A08]">Food</h1>
       </header>
 
       {/* Hero Section - Reduced size */}
-      <section className="container mx-auto px-6 lg:px-8 mb-12 mt-8">
+      <section className="container mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Main article - smaller width */}
           <div className="lg:w-1/2">
@@ -154,7 +154,7 @@ export default function FoodHomepage() {
       </section>
 
       {/* Newest Recipes Section - Using same margins as top section */}
-      <section className="mb-12 relative bg-[#B3A88F] py-8">
+      <section className="relative bg-[#B3A88F] py-8 mt-8">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#0B0A08] italic mb-6">Our Newest Recipes</h2>
         
@@ -215,7 +215,7 @@ export default function FoodHomepage() {
             </div>
             
             {/* Scroll Indicator */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <div className="flex gap-1">
                 {newestRecipes.map((_, index) => (
                   <div 
@@ -224,7 +224,7 @@ export default function FoodHomepage() {
                   ></div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

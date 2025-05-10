@@ -120,7 +120,7 @@ export default function CookingVideoHomepage() {
       </header>
 
       {/* Hero Section - Reduced size */}
-      <section className="container mx-auto px-6 lg:px-8 mb-12">
+      <section className="container mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Main featured video */}
           <div className="lg:w-1/2">
@@ -131,18 +131,18 @@ export default function CookingVideoHomepage() {
                   width={700}
                   height={500}
                   alt={heroVideo.title}
-                  className="w-full object-cover aspect-[16/9] rounded"
+                  className="w-full object-cover aspect-[16/9]"
                 />
                 {/* Play button overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-[#F8FAF7] bg-opacity-80 rounded-full p-4 shadow-lg transform transition-transform group-hover:scale-110">
+                <div className="absolute inset-0 flex items-center justify-center rounded">
+                  <div className="bg-[#F8FAF7] bg-opacity-80 p-4 rounded-lg shadow-lg transform transition-transform group-hover:scale-110">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M8 5.14V19.14L19 12.14L8 5.14Z" fill="#0B0A08" />
                     </svg>
                   </div>
                 </div>
                 {/* Duration badge */}
-                <div className="absolute bottom-4 right-4 bg-[#0B0A08] bg-opacity-70 text-[#F8FAF7] px-2 py-1 text-sm rounded">
+                <div className="absolute bottom-4 right-4 bg-[#0B0A08] bg-opacity-70 text-[#F8FAF7] px-2 py-1 text-sm">
                   {heroVideo.duration}
                 </div>
               </div>
@@ -223,7 +223,7 @@ export default function CookingVideoHomepage() {
               <div className="flex gap-6 pb-4" style={{ minWidth: 'min-content' }}>
                 {cookingVideoSeries.map((video, index) => (
                   <div key={index} className="flex-none w-64 group cursor-pointer">
-                    <div className="relative overflow-hidden rounded">
+                    <div className="relative overflow-hidden">
                       <Image
                         src={video.image}
                         width={260}
@@ -254,7 +254,7 @@ export default function CookingVideoHomepage() {
             </div>
             
             {/* Scroll Indicator */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <div className="flex gap-1">
                 {cookingVideoSeries.map((_, index) => (
                   <div 
@@ -263,25 +263,25 @@ export default function CookingVideoHomepage() {
                   ></div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* Video Categories Section */}
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#383018] italic mb-6">Browse by Category</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {["Quick Meals", "Baking", "International", "Desserts", "Vegetarian", "Techniques"].map((category, index) => (
-              <div key={index} className="bg-[#B3A88F] hover:bg-[#383018] hover:text-[#F8FAF7] transition-colors rounded-lg p-4 text-center cursor-pointer">
+              <div key={index} className="bg-[#B3A88F] hover:bg-[#383018] hover:text-[#F8FAF7] transition-colors p-4 text-center cursor-pointer">
                 <span className="text-[#0B0A08] font-medium group-hover:text-[#F8FAF7]">{category}</span>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

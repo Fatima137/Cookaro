@@ -11,10 +11,10 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <Image
-                src="/image/logo.png"
+                src="/image/image1.png"
                 alt="Cookaroo Logo"
-                width={200}
-                height={60}
+                width={320}
+                height={100}
                 className="mb-4"
               />
               <div className="w-24 h-1 bg-[#B3A88F] mb-6"></div>

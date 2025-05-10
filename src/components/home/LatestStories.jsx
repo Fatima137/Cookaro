@@ -120,7 +120,7 @@ export default function CookingStoriesPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 lg:px-8 mb-12">
+      <section className="container mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Main featured story */}
           <div className="lg:w-1/2">
@@ -131,7 +131,7 @@ export default function CookingStoriesPage() {
                   width={700}
                   height={500}
                   alt={heroStory.title}
-                  className="w-full object-cover aspect-[16/9] rounded group-hover:scale-105 transition-transform duration-500"
+                  className="w-full object-cover aspect-[16/9] group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Read time badge */}
                 <div className="absolute bottom-4 right-4 bg-[#F8FAF7] bg-opacity-90 text-[#0B0A08] px-3 py-1 text-sm rounded-full font-medium">
@@ -215,7 +215,7 @@ export default function CookingStoriesPage() {
               <div className="flex gap-6 pb-4" style={{ minWidth: 'min-content' }}>
                 {storyCollections.map((story, index) => (
                   <div key={index} className="flex-none w-64 group cursor-pointer">
-                    <div className="relative overflow-hidden rounded">
+                    <div className="relative overflow-hidden">
                       <Image
                         src={story.image}
                         width={260}
@@ -224,7 +224,7 @@ export default function CookingStoriesPage() {
                         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {/* Read time badge */}
-                      <div className="absolute bottom-2 right-2 bg-[#F8FAF7] bg-opacity-90 text-[#0B0A08] px-2 py-1 text-xs rounded-full">
+                      <div className="absolute bottom-2 right-2 bg-[#F8FAF7] bg-opacity-90 text-[#0B0A08] px-2 py-1 text-xs">
                         {story.readTime}
                       </div>
                     </div>
@@ -238,7 +238,7 @@ export default function CookingStoriesPage() {
             </div>
             
             {/* Scroll Indicator */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <div className="flex gap-1">
                 {storyCollections.map((_, index) => (
                   <div 
@@ -247,13 +247,13 @@ export default function CookingStoriesPage() {
                   ></div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
 
       {/* Story Categories Section */}
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#383018] italic mb-6">Browse by Topic</h2>
           
@@ -265,7 +265,7 @@ export default function CookingStoriesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Editor's Picks Section */}
       <section className="mb-12 bg-[#B3A88F] py-10">
@@ -296,7 +296,7 @@ export default function CookingStoriesPage() {
                 excerpt: "The fascinating science behind why certain foods bring us emotional comfort and security."
               }
             ].map((pick, index) => (
-              <div key={index} className="bg-[#F8FAF7] rounded-lg shadow-sm group cursor-pointer">
+              <div key={index} className="bg-[#F8FAF7] shadow-sm group cursor-pointer">
                 <div className="relative">
                   <Image
                     src={pick.image}
@@ -324,9 +324,9 @@ export default function CookingStoriesPage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-[#F8FAF7] rounded-lg p-6 md:p-8 shadow-md">
+          <div className="bg-[#F8FAF7] p-6 md:p-8 shadow-md">
             <div className="md:flex items-center justify-between">
               <div className="md:w-2/3">
                 <h3 className="text-xl font-serif text-[#0B0A08] mb-2">Get Culinary Stories in Your Inbox</h3>
@@ -347,7 +347,7 @@ export default function CookingStoriesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

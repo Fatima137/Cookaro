@@ -15,7 +15,7 @@ export default function ShopPage() {
     category: "FEATURED PRODUCT",
     title: "Professional Chef's Knife Set with Wooden Block",
     description: "Our top-rated knife set includes 8 professional-grade knives crafted from high-carbon German stainless steel with ergonomic handles.",
-    image: "/knife.jpg",
+    image: "/image/knife.jpg",
     price: "$129.99",
     originalPrice: "$159.99"
   };
@@ -190,7 +190,7 @@ export default function ShopPage() {
                   width={700}
                   height={500}
                   alt={heroProduct.title}
-                  className="w-full object-cover aspect-[16/9] rounded group-hover:scale-105 transition-transform duration-500"
+                  className="w-full object-cover aspect-[16/9] group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* Sale badge */}
                 <div className="absolute top-4 left-4 bg-[#0B0A08] bg-opacity-90 text-[#F8FAF7] px-3 py-1 text-sm rounded-full font-medium">
@@ -265,7 +265,7 @@ export default function ShopPage() {
       </section>
 
       {/* Trending Products Section */}
-      <section className="mb-12 relative">
+      <section className="relative">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#383O1B] italic mb-6">Trending Products</h2>
         
@@ -307,7 +307,7 @@ export default function ShopPage() {
               <div className="flex gap-6 pb-4" style={{ minWidth: 'min-content' }}>
                 {trendingProducts.map((product, index) => (
                   <div key={index} className="flex-none w-64 group cursor-pointer">
-                    <div className="relative overflow-hidden rounded">
+                    <div className="relative overflow-hidden ">
                       <Image
                         src={product.image}
                         width={260}
@@ -348,7 +348,7 @@ export default function ShopPage() {
             </div>
             
             {/* Scroll Indicator */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <div className="flex gap-1">
                 {trendingProducts.map((_, index) => (
                   <div 
@@ -357,7 +357,7 @@ export default function ShopPage() {
                   ></div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="mt-6 text-center">
             <button className="bg-[#383O1B] hover:bg-[#0B0A08] text-[#F8FAF7] px-6 py-2 rounded-full font-medium transition-colors">
@@ -374,7 +374,7 @@ export default function ShopPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredBrands.map((brand, index) => (
-              <div key={index} className="bg-[#F8FAF7] rounded-lg overflow-hidden shadow-sm group cursor-pointer hover:shadow-md transition-shadow">
+              <div key={index} className="bg-[#F8FAF7] overflow-hidden shadow-sm group cursor-pointer hover:shadow-md transition-shadow">
                 <div className="relative">
                   <Image
                     src={brand.image}
@@ -399,7 +399,7 @@ export default function ShopPage() {
       </section>
 
       {/* Product Categories Section */}
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <div className="container mx-auto px-6 lg:px-8">
           <h2 className="text-2xl font-serif text-[#383O1B] italic mb-6">Shop by Category</h2>
           
@@ -411,12 +411,12 @@ export default function ShopPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Shop Stats Section */}
       <section className="mb-12">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-[#F8FAF7] border border-[#B3A88F] rounded-lg p-8">
+          <div className="bg-[#F8FAF7] border border-[#B3A88F] p-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-serif text-[#0B0A08] mb-2">Join Our Foodie Community</h2>
               <p className="text-[#383O1B]">Quality products, expert-tested recipes, and a supportive cooking community</p>
@@ -442,7 +442,7 @@ export default function ShopPage() {
       {/* Newsletter Section */}
       <section className="mb-12">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-[#0B0A08] text-[#F8FAF7] rounded-lg p-6 md:p-8">
+          <div className="bg-[#0B0A08] text-[#F8FAF7] p-6 md:p-8">
             <div className="md:flex items-center justify-between">
               <div className="md:w-2/3">
                 <h3 className="text-xl font-serif mb-2">Subscribe for Special Offers</h3>

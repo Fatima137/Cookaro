@@ -45,46 +45,74 @@ export default function HeroSection() {
     }
   ];
   
+  // Latest stories data (for left column)
+  const latestStories = [
+    {
+      category: "FOOD CULTURE",
+      title: "The Revival of Ancient Grains: How Heritage Wheat is Changing Modern Baking",
+      readTime: "6 min read"
+    },
+    {
+      category: "RESTAURANT SPOTLIGHT",
+      title: "Inside the World's Most Sustainable Restaurant: Zero-Waste Cooking at Its Finest",
+      description: "This Copenhagen restaurant is redefining fine dining with their innovative approach to eliminating food waste.",
+      readTime: "7 min read"
+    }
+  ];
+  
   return (
-    <section className="pt-64 container mx-auto px-4 py-6 md:py-12 bg-white">
+    <section className="pt-64 container mx-auto px-4 bg-white">
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-8">
-        {/* Left Column - Shop Items */}
-        <div className="w-full sm:w-auto sm:flex lg:block flex-row sm:justify-center gap-4 lg:w-64 lg:flex-col lg:gap-6 order-2 lg:order-1">
-          <div className="relative w-full sm:w-64 mb-6 lg:mb-0">
-            <div className="absolute top-4 left-4 text-sm italic font-medium bg-[#F8FAF7] text-[#38301B] px-2 py-1 rounded-md" style={{ fontFamily:'MyCustomFontItalic' }}>
-              in the shop
+        {/* Left Column - Two Stories and Shop */}
+        <div className="w-full lg:w-64 flex flex-col order-2 lg:order-1">
+          {/* Latest Stories Heading */}
+          <h3 className="text-lg font-medium text-center lg:text-left italic text-[#0B0A08]" style={{ fontFamily:'MyCustomFont' }}>Latest Stories</h3>
+          {/* Story Card 1 */}
+          <div className="group cursor-pointer bg-[#F8FAF7] border border-[#B3A88F] overflow-hidden transition-shadow hover:shadow-md">
+            <div className="h-28 w-full overflow-hidden flex items-center justify-center bg-[#ECECEC]">
+              <Image
+                src="/image/chef1.jpg"
+                width={250}
+                height={110}
+                alt={latestStories[0].title}
+                className="object-cover w-full h-full"
+              />
             </div>
-            <Image
-              src="/image/glass.jpg" 
-              width={250}
-              height={250}
-              alt="Stackable glasses"
-              className="object-cover w-full aspect-square border border-[#B3A88F]"
-            />
-            <div className="mt-3">
-              <h3 className="text-lg font-medium text-[#0B0A08]" style={{ fontFamily:'MyCustomFontItalic' }}>Everything Under the Sun</h3>
-              <p className="text-sm text-[#38301B]">Stackable glasses in sizes for sipping and socializing.</p>
-              <Link href="" className="text-sm text-[#B3A88F] flex items-center mt-2 hover:text-[#38301B]">
-                SHOP NOW <span className="ml-1">→</span>
-              </Link>
+            <div className="p-3">
+              <span className="text-[#B3A88F] uppercase text-xs tracking-wider font-medium">{latestStories[0].category}</span>
+              <h4 className="text-base font-serif text-[#0B0A08] mt-1 leading-tight group-hover:text-[#38301B] transition-colors">{latestStories[0].title}</h4>
+              <span className="text-[#38301B] text-xs mt-1 block">{latestStories[0].readTime}</span>
             </div>
           </div>
-          
-          <div className="relative w-full sm:w-64">
-            <div className="absolute top-4 left-4 text-sm italic font-medium bg-[#F8FAF7] text-[#38301B] px-2 py-1 rounded-md" style={{ fontFamily:'MyCustomFontItalic' }}>
-              in the shop
+          {/* Divider */}
+          <Image 
+            src="/image/divid.png" 
+            width={120}
+            height={20}
+            alt=""
+            className="mx-auto"
+            style={{marginTop: 0, marginBottom: 0}}
+          />
+          {/* Shop Heading */}
+          <h3 className="text-lg font-medium text-center lg:text-left italic text-[#0B0A08]" style={{ fontFamily:'MyCustomFont' }}>Shop</h3>
+          {/* Shop Card */}
+          <div className="group cursor-pointer bg-[#F8FAF7] border border-[#B3A88F] overflow-hidden transition-shadow hover:shadow-md">
+            <div className="h-28 w-full overflow-hidden flex items-center justify-center bg-[#ECECEC] relative">
+              <div className="absolute top-2 left-2 text-xs italic font-medium bg-white/80 text-[#38301B] px-2 py-1 rounded-md z-10" style={{ fontFamily:'MyCustomFontItalic' }}>
+                in the shop
+              </div>
+              <Image
+                src="/image/glass.jpg"
+                width={250}
+                height={110}
+                alt="Stackable glasses"
+                className="object-cover w-full h-full"
+              />
             </div>
-            <Image
-              src="/image/rack.jpg" 
-              width={250}
-              height={250}
-              alt="Dish rack"
-              className="object-cover w-full aspect-square border border-[#B3A88F]"
-            />
-            <div className="mt-3">
-              <h3 className="text-lg font-medium text-[#0B0A08]" style={{ fontFamily:'MyCustomFontItalic' }}>You Wash, I&apos;ll Dry</h3>
-              <p className="text-sm text-[#38301B]">Your favorite dish rack, right this way.</p>
-              <Link href="" className="text-sm text-[#B3A88F] flex items-center mt-2 hover:text-[#38301B]">
+            <div className="p-3">
+              <h3 className="text-base font-medium text-[#0B0A08]" style={{ fontFamily:'MyCustomFontItalic' }}>Everything Under the Sun</h3>
+              <p className="text-xs text-[#38301B]">Stackable glasses in sizes for sipping and socializing.</p>
+              <Link href="" className="text-xs text-[#B3A88F] flex items-center mt-1 hover:text-[#38301B]">
                 SHOP NOW <span className="ml-1">→</span>
               </Link>
             </div>

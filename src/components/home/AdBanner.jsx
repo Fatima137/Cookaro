@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function AdBanner() {
   return (
-    <section className="container mx-auto px-4 py-6 mb-12">
-      <div className="relative bg-teal-500 rounded-lg overflow-hidden">
+    <section className="container mx-auto px-4 py-6">
+      <div className="relative bg-teal-500 overflow-hidden">
         <div className="p-6 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
           <div className="max-w-lg text-center md:text-left">
             <div className="bg-yellow-300 px-4 py-1 mb-4 inline-block font-bold text-black text-sm md:text-base">
