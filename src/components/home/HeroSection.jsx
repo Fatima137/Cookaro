@@ -50,6 +50,7 @@ export default function HeroSection() {
     {
       category: "FOOD CULTURE",
       title: "The Revival of Ancient Grains: How Heritage Wheat is Changing Modern Baking",
+      description: "This restaurant is redefining innovative approach to eliminating food waste.",
       readTime: "6 min read"
     },
     {
@@ -81,6 +82,7 @@ export default function HeroSection() {
             <div className="p-3">
               <span className="text-[#B3A88F] uppercase text-xs tracking-wider font-medium">{latestStories[0].category}</span>
               <h4 className="text-base font-serif text-[#0B0A08] mt-1 leading-tight group-hover:text-[#38301B] transition-colors">{latestStories[0].title}</h4>
+              <p className="text-xs text-[#38301B]">{latestStories[0].description}</p>
               <span className="text-[#38301B] text-xs mt-1 block">{latestStories[0].readTime}</span>
             </div>
           </div>
@@ -117,7 +119,16 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
+          <Image 
+            src="/image/divid.png" 
+            width={120}
+            height={20}
+            alt=""
+            className="mx-auto"
+            style={{marginTop: 0, marginBottom: 0}}
+          />
         </div>
+        
 
         {/* Center Hero - Main Feature */}
         <div className="flex-1 w-full order-1 lg:order-2">
@@ -146,6 +157,8 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
+
+        
 
         {/* Right Column - Featured Recipes */}
         <div className="w-full lg:w-64 flex flex-col h-full order-3">
