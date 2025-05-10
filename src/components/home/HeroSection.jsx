@@ -61,12 +61,12 @@ export default function HeroSection() {
   ];
   
   return (
-    <section className="pt-64 container mx-auto px-4 bg-white">
-      <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-8">
+    <section className="pt-64 container mx-auto px-4 pb-8">
+      <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8">
         {/* Left Column - Two Stories and Shop */}
-        <div className="w-full lg:w-64 flex flex-col order-2 lg:order-1">
+        <div className="w-full lg:w-64 flex flex-col h-full order-2 lg:order-1 gap-4">
           {/* Latest Stories Heading */}
-          <h3 className="text-lg font-medium text-center lg:text-left italic text-[#0B0A08]" style={{ fontFamily:'MyCustomFont' }}>Latest Stories</h3>
+          <h3 className="text-lg font-medium text-center lg:text-left italic text-[#0B0A08] mb-3" style={{ fontFamily:'MyCustomFont' }}>Latest Stories</h3>
           {/* Story Card 1 */}
           <div className="group cursor-pointer bg-[#F8FAF7] border border-[#B3A88F] overflow-hidden transition-shadow hover:shadow-md">
             <div className="h-28 w-full overflow-hidden flex items-center justify-center bg-[#ECECEC]">
@@ -120,7 +120,7 @@ export default function HeroSection() {
         </div>
 
         {/* Center Hero - Main Feature */}
-        <div className="flex-1 w-full order-1 lg:order-2 mb-6 lg:mb-0">
+        <div className="flex-1 w-full order-1 lg:order-2">
           <div className="relative group">
             <Image
               src="/image/egg.jpg" 
@@ -148,7 +148,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right Column - Featured Recipes */}
-        <div className="w-full lg:w-64 order-3">
+        <div className="w-full lg:w-64 flex flex-col h-full order-3">
           <h3 className="text-lg font-medium mb-4 text-center lg:text-left italic text-[#0B0A08]" style={{ fontFamily:'MyCustomFont' }}>Latest Recipes</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
             {recipes.map((recipe) => (
