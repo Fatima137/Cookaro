@@ -28,19 +28,19 @@ export default function HeroSection() {
     {
       id: 1,
       title: "Session Margarita",
-      image: "/mint.jpg",
+      image: "/image/mint.jpg",
       slug: "session-margarita"
     },
     {
       id: 2,
       title: "Taco Salad with Crunchy Chickpeas",
-      image: "/chickpea.jpg",
+      image: "/image/chickpea.jpg",
       slug: "taco-salad-crunchy-chickpeas"
     },
     {
       id: 3,
       title: "Chocolate Dump-It Cake",
-      image: "/cake.jpg",
+      image: "/image/cake.jpg",
       slug: "chocolate-dump-it-cake"
     }
   ];
@@ -55,7 +55,7 @@ export default function HeroSection() {
               in the shop
             </div>
             <Image
-              src="/glass.jpg" 
+              src="/image/glass.jpg" 
               width={250}
               height={250}
               alt="Stackable glasses"
@@ -75,7 +75,7 @@ export default function HeroSection() {
               in the shop
             </div>
             <Image
-              src="/rack.jpg" 
+              src="/image/rack.jpg" 
               width={250}
               height={250}
               alt="Dish rack"
@@ -95,7 +95,7 @@ export default function HeroSection() {
         <div className="flex-1 w-full order-1 lg:order-2 mb-6 lg:mb-0">
           <div className="relative group">
             <Image
-              src="/egg.jpg" 
+              src="/image/egg.jpg" 
               width={900}
               height={600}
               alt="Elegant table setting with food"
@@ -106,7 +106,7 @@ export default function HeroSection() {
           <div className="flex flex-col items-center text-center mt-6">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-[#0B0A08]" style={{ fontFamily:'MyCustomFontItalic' }}>25% Off Our Five Two Favorites</h2>
             <Image 
-              src="/divider.jpeg" 
+              src="/image/divider.jpeg" 
               width={120}
               height={20}
               alt=""
@@ -136,7 +136,7 @@ export default function HeroSection() {
                     />
                     <p className="mt-2 text-base text-center group-hover:text-[#38301B] transition-colors duration-300 text-[#38301B]" style={{ fontFamily:'MyCustomFontItalic' }}>{recipe.title}</p>
                     <Image 
-                      src="/divid.png" 
+                      src="/image/divid.png" 
                       width={120}
                       height={20}
                       alt=""

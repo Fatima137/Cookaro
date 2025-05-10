@@ -26,7 +26,7 @@ export default function Header() {
     <div className="fixed top-0 left-0 w-full z-50">
       <SponsorBanner />
       <AnnouncementBanner />
-      <header className="bg-[#F8FAF7] border-b border-[#B3A88F] shadow-md">
+      <header className="bg-white border-b border-[#B3A88F] shadow-md">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="flex items-center justify-between py-5 gap-x-12">
             {/* Left: Nav/Menu */}

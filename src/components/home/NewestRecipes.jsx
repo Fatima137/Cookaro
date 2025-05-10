@@ -14,7 +14,7 @@ export default function FoodHomepage() {
     category: "PRODUCT REVIEW",
     title: "I Found a Store-Bought Hummus I Actually Love—Here's What to Eat It With",
     description: "Tired of bad store-bought hummus? This new collab from Graza and Ithaca might just change your mind.",
-    image: "/cros.jpg"
+    image: "/image/cros.jpg"
   };
 
   // Latest sidebar articles
