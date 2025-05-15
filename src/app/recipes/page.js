@@ -73,7 +73,7 @@ export default function RecipesHomepage() {
     {
       id: 5, 
       title: 'Sheet Pan Honey Mustard Chicken',
-      author: 'Food52',
+      author: 'Cookaroo',
       date: 'April 15, 2025',
       image: '/grill.jpg',
       rating: 4.6,
@@ -170,7 +170,7 @@ export default function RecipesHomepage() {
     }
   ];
 
-  // Our Faves - Featured articles similar to Food52
+  // Our Faves - Featured articles similar to Cookaroo
   const ourFaves = [
     {
       id: 1,
@@ -340,7 +340,7 @@ export default function RecipesHomepage() {
 
       {/* Main content */}
       <main className="max-w-6xl mx-auto px-4 pb-12">
-        {/* Our Faves Section - Styled like Food52 */}
+        {/* Our Faves Section - Styled like Cookaroo */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center">

@@ -214,7 +214,7 @@ export default function ShopPage() {
                   Add to Cart
                 </button>
               </div>
-            </div>
+            </div> 
           </div>
 
           {/* Featured products sidebar */}

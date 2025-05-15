@@ -240,7 +240,7 @@ export default function CookingVideoHomepage() {
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 5.14V19.14L19 12.14L8 5.14Z" fill="#0B0A08" />
                           </svg>
-                        </div>
+                        </div>s
                       </div>
                       {/* Duration badge */}
                       <div className="absolute bottom-2 right-2 bg-[#0B0A08] bg-opacity-70 text-[#F8FAF7] px-2 py-1 text-xs rounded">

@@ -12,7 +12,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [recipesDropdownOpen, setRecipesDropdownOpen] = useState(false);
   const recipesDropdownRef = useRef(null);
-  const HEADER_STACK_HEIGHT = 220; // px, adjust if your header stack height changes
+  const HEADER_STACK_HEIGHT = 180; // px, adjusted to remove gap
 
   const languages = ["EN", "DE", "IT", "FR", "ES"];
 
@@ -45,19 +45,18 @@ export default function Header() {
                       key={i}
                       className="relative group"
                       onMouseEnter={() => setRecipesDropdownOpen(true)}
-                      onMouseLeave={e => {
-                        if (!recipesDropdownRef.current || !recipesDropdownRef.current.contains(e.relatedTarget)) {
-                          setRecipesDropdownOpen(false);
+                      onMouseLeave={(e) => {
+                        // Check if we're moving to the dropdown
+                        const toElement = e.relatedTarget;
+                        if (recipesDropdownRef.current && recipesDropdownRef.current.contains(toElement)) {
+                          return;
                         }
+                        setRecipesDropdownOpen(false);
                       }}
                     >
                       <Link
                         href="/recipes"
                         className="hover:text-[#38301B] transition-colors duration-200 hover:underline hover:font-bold underline-offset-4"
-                        onClick={e => {
-                          e.preventDefault();
-                          setRecipesDropdownOpen(!recipesDropdownOpen);
-                        }}
                       >
                         {item}
                       </Link>
@@ -73,73 +72,143 @@ export default function Header() {
                           <div className="w-[900px] bg-white/95 shadow-2xl rounded-2xl border border-[#E5E5E5] p-8 flex gap-0 text-[#38301B] text-base md:text-lg divide-x divide-[#ECECEC] backdrop-blur-sm" style={{ minWidth: '700px' }}>
                             {/* Dinner */}
                             <div className="flex-1 min-w-[120px] px-6 first:pl-0 last:pr-0">
-                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-2 tracking-wider">Dinner</h4>
-                              <ul className="space-y-1">
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Pasta</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Pizza</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Chili</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Lasagna</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Meatloaf</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Casserole</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Mac and Cheese</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Tacos</li>
-                                <li className="font-bold mt-2 hover:underline cursor-pointer">VIEW ALL</li>
-                              </ul>
-                            </div>
-                            {/* Lunch */}
-                            <div className="flex-1 min-w-[120px] px-6 first:pl-0 last:pr-0">
-                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-2 tracking-wider">Lunch</h4>
-                              <ul className="space-y-1">
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Salad</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Sandwich</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Soup</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Stew</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Potato Salad</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Pasta Salad</li>
-                                <li className="font-bold mt-2 hover:underline cursor-pointer">VIEW ALL</li>
-                              </ul>
-                            </div>
-                            {/* Baking & Desserts */}
-                            <div className="flex-1 min-w-[120px] px-6 first:pl-0 last:pr-0">
-                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-2 tracking-wider">Baking & Desserts</h4>
-                              <ul className="space-y-1">
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Cookies</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Bread</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Cake</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Pie</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Banana Bread</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Chocolate Cake</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Ice Cream</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Cheesecake</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Brownies</li>
-                                <li className="font-bold mt-2 hover:underline cursor-pointer">VIEW ALL</li>
+                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-4 tracking-wider" style={{ fontFamily: 'MyCustomFont' }}>Dinner</h4>
+                              <div className="h-px w-12 bg-[#B3A88F] mb-4"></div>
+                              <ul className="space-y-2">
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Quick Dinners</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Family Favorites</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Weekend Specials</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>One-Pot Meals</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Sheet Pan Dinners</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Slow Cooker</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Grilling</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Pasta</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/dinner" className="font-bold mt-4 hover:underline block text-[15px]" style={{ fontFamily: 'MyCustomFont' }}>VIEW ALL</Link>
+                                </li>
                               </ul>
                             </div>
                             {/* Breakfast */}
                             <div className="flex-1 min-w-[120px] px-6 first:pl-0 last:pr-0">
-                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-2 tracking-wider">Breakfast</h4>
-                              <ul className="space-y-1">
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Quiche</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Granola</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Smoothie</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Frittata</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Omelet</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Pancakes</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Waffles</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">French Toast</li>
-                                <li className="font-bold mt-2 hover:underline cursor-pointer">VIEW ALL</li>
+                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-4 tracking-wider" style={{ fontFamily: 'MyCustomFont' }}>Breakfast</h4>
+                              <div className="h-px w-12 bg-[#B3A88F] mb-4"></div>
+                              <ul className="space-y-2">
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Quick Breakfasts</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Weekend Brunch</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Eggs</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Pancakes & Waffles</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Smoothies</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Overnight Oats</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Breakfast Bowls</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Breakfast Sandwiches</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/breakfast" className="font-bold mt-4 hover:underline block text-[15px]" style={{ fontFamily: 'MyCustomFont' }}>VIEW ALL</Link>
+                                </li>
                               </ul>
                             </div>
-                            {/* More */}
+                            {/* Baking & Desserts */}
                             <div className="flex-1 min-w-[120px] px-6 first:pl-0 last:pr-0">
-                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-2 tracking-wider">More</h4>
-                              <ul className="space-y-1">
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Sides</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Entrees</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Appetizers</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Snacks</li>
-                                <li className="hover:text-[#0B0A08] hover:font-semibold transition-colors cursor-pointer">Drinks</li>
+                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-4 tracking-wider" style={{ fontFamily: 'MyCustomFont' }}>Baking & Desserts</h4>
+                              <div className="h-px w-12 bg-[#B3A88F] mb-4"></div>
+                              <ul className="space-y-2">
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Cookies</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Bread</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Cake</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Pie</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Banana Bread</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Chocolate Cake</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Ice Cream</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Cheesecake</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="hover:text-[#0B0A08] hover:font-semibold transition-colors block text-[15px]" style={{ fontFamily: 'MyCustomFontItalic' }}>Brownies</Link>
+                                </li>
+                                <li>
+                                  <Link href="/recipes/category/baking" className="font-bold mt-4 hover:underline block text-[15px]" style={{ fontFamily: 'MyCustomFont' }}>VIEW ALL</Link>
+                                </li>
                               </ul>
+                            </div>
+                            {/* Featured Section */}
+                            <div className="flex-1 min-w-[200px] px-6 first:pl-0 last:pr-0">
+                              <h4 className="uppercase text-xs font-bold text-[#B3A88F] mb-4 tracking-wider" style={{ fontFamily: 'MyCustomFont' }}>Featured</h4>
+                              <div className="h-px w-12 bg-[#B3A88F] mb-4"></div>
+                              <div className="space-y-4">
+                                <Link href="/recipes/featured" className="block group">
+                                  <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-2">
+                                    <Image
+                                      src="/featured-recipe.jpg"
+                                      alt="Featured Recipe"
+                                      fill
+                                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    <div className="absolute bottom-0 left-0 right-0 p-3">
+                                      <span className="text-white text-sm font-medium" style={{ fontFamily: 'MyCustomFontItalic' }}>Spring Collection</span>
+                                    </div>
+                                  </div>
+                                </Link>
+                                <Link href="/recipes/seasonal" className="block group">
+                                  <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-2">
+                                    <Image
+                                      src="/seasonal-recipe.jpg"
+                                      alt="Seasonal Recipe"
+                                      fill
+                                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    <div className="absolute bottom-0 left-0 right-0 p-3">
+                                      <span className="text-white text-sm font-medium" style={{ fontFamily: 'MyCustomFontItalic' }}>Seasonal Favorites</span>
+                                    </div>
+                                  </div>
+                                </Link>
+                              </div>
                             </div>
                           </div>
                         </div>
